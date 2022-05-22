@@ -7,7 +7,7 @@ if bmi < 18.5:
     print ("Underweight")
 if 18.5 <= bmi <= 24.9:
     print ("Normal weight")
-if 25. <= bmi <= 29.9:
+if 24.9 < bmi <= 29.9:
     print ("Overweight")
 if bmi > 29.9:
     print ("obese")
@@ -28,7 +28,7 @@ if bmi < 18.5:
     ax.text(mass-7.,height+0.02,"You're Underweight")
 if 18.5 <= bmi <= 24.9:
     ax.text(mass-7.,height+0.02,"You're Normal")
-if 25. <= bmi <= 29.9:
+if 24.9 < bmi <= 29.9:
     ax.text(mass-7.,height+0.02,"You're Overweight")
 if bmi > 29.9:
     ax.text(mass-7.,height+0.02,"You're obese")
