@@ -14,9 +14,7 @@ if bmi > 29.9:
 #----------------plot-------------------------
 import numpy as np
 import matplotlib.pyplot as plt
-x = np.linspace(30,120,11)
-y = np.linspace(1,2,11)
-X, Y = np.meshgrid(np.linspace(30, 120, 100), np.linspace(1, 2, 100))
+X, Y = np.meshgrid(np.linspace(10, 120, 100), np.linspace(1, 2, 100))
 Z = X/Y**2
 levels = [np.min(Z),18.5,24.9,29.9,np.max(Z)]
 
@@ -32,9 +30,9 @@ if 24.9 < bmi <= 29.9:
     ax.text(mass-7.,height+0.02,"You're Overweight")
 if bmi > 29.9:
     ax.text(mass-7.,height+0.02,"You're obese")
-ax.text(40.,1.95,"Underweight")
+ax.text(30.,1.95,"Underweight")
 ax.text(78.,1.95,"Normal")
-ax.text(98.,1.95,"Overweight")
+ax.text(96.,1.95,"Overweight")
 ax.text(90.,1.4,"Obese")
 ax.set_xlabel(r'Mass [kg]', color= 'Black')
 ax.set_ylabel(r'Height [m]', color= 'Black')
