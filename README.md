@@ -1,4 +1,15 @@
-# Python-in-Everyday-life
-Codes to be used in everyday life
+# ProjectStash
 
-BMI --> Calculate Body mass index (BMI) which is a value derived from the mass and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/m², resulting from mass in kilograms and height in metres. Input: Mass & Height. Output: BMI, underweight, Normal, Over weight, or obese and an informative plot.
+**ProjectStash** is a repository where I store various side projects and useful code that I’ve worked on over time. It’s a collection of experimental scripts, tools, and coding solutions, not directly tied to my primary work but still valuable for learning and exploration.
+
+### Current Contents:
+
+- **BMI Calculator**: A Python script that calculates Body Mass Index (BMI) based on input mass (kg) and height (m). It provides the BMI value along with a classification (Underweight, Normal, Overweight, or Obese) and generates an informative plot.
+  
+- **Evaluation Metrics**: Code snippets for evaluating models using various metrics, useful for machine learning and statistical analysis.
+
+- **ML Datasets**:
+  - **MNIST**: A set of scripts to work with the MNIST dataset, a benchmark in image classification.
+  - **Red Wine Quality**: Code for analyzing the famous Red Wine Quality dataset, focused on predicting wine quality using machine learning techniques.
+
+This repository serves as a growing collection of useful scripts and projects that I explore in my spare time. Feel free to browse, use, or contribute to anything that interests you.
