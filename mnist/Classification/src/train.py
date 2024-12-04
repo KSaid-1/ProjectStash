@@ -5,6 +5,7 @@ from sklearn import metrics
 from sklearn import tree
 #
 input_path = '/Users/uqksaida/Desktop/ProjectStash/ProjectStash/mnist/Classification/input'
+model_path = '/Users/uqksaida/Desktop/ProjectStash/ProjectStash/mnist/Classification/models'
 def run(fold):
     # read training data with folds
     df = pd.read_csv(input_path+'/mnist_train_folds.csv')
@@ -31,7 +32,19 @@ def run(fold):
     # fit the model on training data
     clf.fit(x_train, y_train)
 
-    #
+    # create predictions for validation samples
+    preds = clf.predict(x_valid)
+
+    # calculate & print accuracy
+    accuracy = metrics.accuracy_score(y_valid, preds)
+    print(f"Fold={fold}, Accuracy={accuracy}")
+
+    # save the model
+    joblib.dump(clf, model_path+f"/dt_{fold}.bin")
+
+if __name__ == "__main__":
+    for fold_ in range(5):
+        run(fold_)
 
 
 

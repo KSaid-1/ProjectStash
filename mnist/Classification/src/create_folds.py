@@ -10,7 +10,7 @@ if __name__ == "__main__":
     data = datasets.fetch_openml('mnist_784',version=1,return_X_y=True)
     # create a dataframe
     df = pd.DataFrame(data[0])
-    df['target'] = data[1]
+    df['label'] = data[1]
     # create a new column called kfold and fill it with -1
     df['kfold'] = -1
     # shuffle the data
