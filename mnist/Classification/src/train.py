@@ -4,11 +4,11 @@ import config
 import joblib
 import pandas as pd
 from sklearn import metrics
-from sklearn import tree
 import argparse
+import model_dispatcher
 #
 
-def run(fold):
+def run(fold, model):
     # read training data with folds
     df = pd.read_csv(config.TRAINING_FILE)
 
@@ -28,8 +28,8 @@ def run(fold):
     x_valid = df_valid.drop("label", axis=1).values
     y_valid = df_valid.label.values
 
-    # initialize simple decision tree classifier from sklearn
-    clf = tree.DecisionTreeClassifier()
+    # fetch the model from model_dispatcher
+    clf = model_dispatcher.models[model]
 
     # fit the model on training data
     clf.fit(x_train, y_train)
@@ -50,13 +50,11 @@ if __name__ == "__main__":
 
     # add the different arguments you need and their type
     parser.add_argument('--fold', type=int, help='Number of folds for training')
+    parser.add_argument('--model', type=str, help='Model name')
 
     # read the arguments from the command line
     args = parser.parse_args()
 
     # run the fold specified by command line arguments
-    run(fold=args.fold)
-
-
-
+    run(fold=args.fold, model=args.model)
 
