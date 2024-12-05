@@ -1,14 +1,16 @@
 # import all required tools
+import os
+import config
 import joblib
 import pandas as pd
 from sklearn import metrics
 from sklearn import tree
+import argparse
 #
-input_path = '/Users/uqksaida/Desktop/ProjectStash/ProjectStash/mnist/Classification/input'
-model_path = '/Users/uqksaida/Desktop/ProjectStash/ProjectStash/mnist/Classification/models'
+
 def run(fold):
     # read training data with folds
-    df = pd.read_csv(input_path+'/mnist_train_folds.csv')
+    df = pd.read_csv(config.TRAINING_FILE)
 
     # training data is where kfold is not equal to provided fold
     # reset the index
@@ -40,11 +42,20 @@ def run(fold):
     print(f"Fold={fold}, Accuracy={accuracy}")
 
     # save the model
-    joblib.dump(clf, model_path+f"/dt_{fold}.bin")
+    joblib.dump(clf, os.path.join(config.MODEL_OUTPUT, f"dt_{fold}.bin"))
 
 if __name__ == "__main__":
-    for fold_ in range(5):
-        run(fold_)
+    # initialize ArgumentParser class of argparse
+    parser = argparse.ArgumentParser(description="Train a decision tree classifier")
+
+    # add the different arguments you need and their type
+    parser.add_argument('--fold', type=int, help='Number of folds for training')
+
+    # read the arguments from the command line
+    args = parser.parse_args()
+
+    # run the fold specified by command line arguments
+    run(fold=args.fold)
 
 
 
