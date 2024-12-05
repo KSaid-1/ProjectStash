@@ -1,2 +1,4 @@
 # Content for .gitignore
 *.csv*.bin
+.bin
+.csv
