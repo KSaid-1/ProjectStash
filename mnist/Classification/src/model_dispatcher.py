@@ -9,6 +9,7 @@ models = (
     {
         "decision_tree_gini": tree.DecisionTreeClassifier(criterion='gini'),
         "decision_tree_entropy": tree.DecisionTreeClassifier(criterion='entropy'),
+        "decision_tree_log_loss": tree.DecisionTreeClassifier(criterion='log_loss'),
         "et": ensemble.ExtraTreesClassifier(),
         "rf": ensemble.RandomForestClassifier(),
     }
